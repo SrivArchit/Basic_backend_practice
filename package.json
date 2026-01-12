@@ -4,7 +4,7 @@
   "description": "a basic backend practice",
   "main": "index.js",
   "scripts": {
-    "dev": " nodemon src/index.js ",
+    "dev": " nodemon src/index.js "
   },
   "keywords": [
     "javascript",
