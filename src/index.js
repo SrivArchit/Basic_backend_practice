@@ -1,23 +1,25 @@
 import dotenv from "dotenv";
-import mongoose from "mongoose";
-import { DB_NAME } from "./constants.js";
-
 import connectDB from "./db/index.js";
+import app from "./app.js";
+
+
 
 dotenv.config({
-    path: "./.env"
+  path: "./.env"
 });
 
-
+const PORT = process.env.PORT || 8000;
 
 connectDB()
-.then(() => {
-    console.log("Connected to MongoDB");
-}).catch((error) => {
+  .then(() => {
+    app.listen(PORT, '0.0.0.0', () => {
+      console.log(`Server is running on port ${PORT}`);
+    });
+  })
+  .catch((error) => {
     console.error("Error connecting to MongoDB:", error);
-    throw error;
-});
-
+    process.exit(1);
+  });
 
 
 
